@@ -500,10 +500,10 @@
                 // console.log(element);
                 console.log(this.element);
                 if (this.element && this.element.getAttribute('fs-rangeslider-element-symbol')) {
-                    symbolValue = this.element.getAttribute('fs-rangeslider-element-symbol');
+                    let symbolValue = this.element.getAttribute('fs-rangeslider-element-symbol');
                 }
                 else {
-                    symbolValue = "";
+                    let symbolValue = "";
                 }
                 d = symbolValue + d;
                 if (t <= minRange && t != 0) {
