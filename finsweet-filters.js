@@ -1,3 +1,5 @@
+// LINE 934 CONTAINS ELEMENT
+
 (() => {
     var ie = Object.create;
     var it = Object.defineProperty,
@@ -930,6 +932,7 @@
                 }) => d === "to");
                 if (p && f.length)
                     for (let d of f) {
+                        global currentFsElement = E;
                         let {
                             element: E,
                             type: A
