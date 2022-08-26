@@ -496,12 +496,11 @@
             let l = `${t}`,
                 d = t.toLocaleString();
                 if (s <= minRange && s != 0) {
-                    d = "=<" + d
+                    d = "<" + d
                 }
                 if (s >= maxRange) {
                     d = d + "+"
                 }
-                d = "$" + d;
 
             return n.setAttribute(ft, l), a && (a.textContent = u ? d : l), r && this.updateInputElement(), !0
         }
