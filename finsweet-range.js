@@ -495,10 +495,6 @@
             this.currentValue = t, this.updatePosition(), this.updateSiblingConstraints();
             let l = `${t}`,
                 d = t.toLocaleString();
-                console.log(this);
-                console.log(n);
-                // console.log(element);
-                console.log(this.element);
                 let symbolValue = "";
                 if (this.element && this.element.getAttribute('fs-rangeslider-element-symbol')) {
                     symbolValue = this.element.getAttribute('fs-rangeslider-element-symbol');
@@ -507,15 +503,6 @@
                 if (this.element && this.element.getAttribute('fs-rangeslider-element-symbol-location')) {
                     symbolLocation = this.element.getAttribute('fs-rangeslider-element-symbol-location');
                 }
-                // if (t <= minRange && t != 0) {
-                //     d = "< " + symbolValue + d;
-                // }
-                // else if (t >= maxRange) {
-                //     d = d + symbolValue + "+";
-                // }
-                // else {
-                //     d = d + symbolValue;
-                // }
 
                 if (t <= minRange && t != 0 && symbolLocation == "before") {
                     d = "< " + symbolValue + d;
