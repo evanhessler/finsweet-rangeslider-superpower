@@ -902,7 +902,13 @@
         },
         qt = (e, t, r, o, min, max) => {
             let [s, i, n] = [e, t, r].map(a => o === "date" ? dt(a) : jt(a));
-            return s ? !t && typeof n != "undefined" ? s <= n : !r && typeof i != "undefined" ? s >= i : typeof n == "undefined" || typeof i == "undefined" ? !1 : s >= i && s <= n : !1
+            // s = $45,000
+            // i = $28,000
+            // n = $193,000
+            // o = null
+            // s >= i && s <= n
+            // (s >= i || i <= min) && (s <= n || n >= max)
+            return s ? !t && typeof n != "undefined" ? s <= n : !r && typeof i != "undefined" ? s >= i : typeof n == "undefined" || typeof i == "undefined" ? !1 : (s >= i || i <= min) && (s <= n || n >= max) : !1
         };
     var {
         location: zt,
