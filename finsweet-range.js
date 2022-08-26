@@ -501,7 +501,7 @@
                 if (s >= maxRange) {
                     d = d + "+"
                 }
-                d = $ + d;
+                d = "$" + d;
 
             return n.setAttribute(ft, l), a && (a.textContent = u ? d : l), r && this.updateInputElement(), !0
         }
