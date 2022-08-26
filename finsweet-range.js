@@ -433,7 +433,7 @@
             this.updatingInput = !1;
             this.getValue = () => this.currentValue;
             this.getConstraints = () => [this.minValue, this.maxValue];
-            this.inputElement = l, this.displayValueElement = d, this.formatValueDisplay = p, this.index = r, this.minRange = s, this.maxRange = n, this.totalRange = n - s, this.step = i, this.precision = a, this.minValue = s, this.maxValue = n, this.trackWidth = o, ht(t), Tt(t, l), this.setValue(u), this.listenEvents()
+            this.inputElement = l, this.displayValueElement = d, this.formatValueDisplay = p, this.index = r, this.minRange = s, this.maxRange = n, this.totalRange = n - s, this.step = i, this.precision = a, this.minValue = s, this.maxValue = n, this.trackWidth = o, ht(t), Tt(t, l), this.setValue(u, s, n), this.listenEvents()
         }
         listenEvents() {
             let {
@@ -449,7 +449,7 @@
             } = this, {
                 key: n
             } = t;
-            !it.includes(n) || (t.preventDefault(), W.includes(n) ? this.setValue(s + r) : this.setValue(s - r))
+            !it.includes(n) || (t.preventDefault(), W.includes(n) ? this.setValue(s + r, s, n) : this.setValue(s - r, s, n))
         }
         handleInputChange() {
             let {
@@ -466,10 +466,10 @@
                 value: u
             } = t, l = parseFloat(u);
             if (l) {
-                this.setValue(L(l, o, i));
+                this.setValue(L(l, o, i), s, n);
                 return
             }
-            this.setValue(r === 0 ? s : n, !1)
+            this.setValue(r === 0 ? s : n, s, n, !1)
         }
         updatePosition() {
             let {
@@ -482,7 +482,7 @@
             } = this, a = (t - n) * s / o;
             r.style.left = `${a}px`, i == null || i.update()
         }
-        setValue(t, r = !0) {
+        setValue(t, minRange, maxRange, r = !0) {
             let {
                 currentValue: s,
                 element: n,
@@ -618,7 +618,7 @@
                     [h, I] = c.getConstraints(),
                     S;
                 p > T ? S = h : f < T ? S = I : S = A(T);
-                let vt = c.setValue(S, !l);
+                let vt = c.setValue(S, n, s, !l);
                 b || (b = vt)
             }, g = m => {
                 m.cancelable && m.preventDefault(), document.removeEventListener("mousemove", R), document.removeEventListener("touchmove", R), document.removeEventListener("mouseup", g), document.removeEventListener("touchend", g), l && b && (c == null || c.updateInputElement()), b = !1, c == null || c.element.blur(), c = void 0
@@ -633,7 +633,7 @@
                 let I = ut(h, r);
                 if (!I) return;
                 I.element.focus(), c = I;
-                let S = I.setValue(h, !l);
+                let S = I.setValue(h, n, s, !l);
                 b || (b = S)
             }, j = () => {
                 d = u.clientWidth, {
