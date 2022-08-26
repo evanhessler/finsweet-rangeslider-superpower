@@ -495,13 +495,17 @@
             this.currentValue = t, this.updatePosition(), this.updateSiblingConstraints();
             let l = `${t}`,
                 d = t.toLocaleString();
-                if (element && element.get_attribute('fs-rangeslider-element-symbol')) {
-                    symbolValue = n.get_attribute('fs-rangeslider-element-symbol')
-                }
-                else {
-                    symbolValue = "";
-                }
-                d = symbolValue + d;
+                console.log(this);
+                console.log(n);
+                console.log(element);
+                console.log(this.element);
+                // if (element && element.get_attribute('fs-rangeslider-element-symbol')) {
+                //     symbolValue = n.get_attribute('fs-rangeslider-element-symbol')
+                // }
+                // else {
+                //     symbolValue = "";
+                // }
+                // d = symbolValue + d;
                 if (t <= minRange && t != 0) {
                     d = "< " + d
                 }
