@@ -495,10 +495,10 @@
             this.currentValue = t, this.updatePosition(), this.updateSiblingConstraints();
             let l = `${t}`,
                 d = t.toLocaleString();
-                if (s <= minRange && s != 0) {
+                if (t <= minRange && t != 0) {
                     d = "<" + d
                 }
-                if (s >= maxRange) {
+                if (t >= maxRange) {
                     d = d + "+"
                 }
 
