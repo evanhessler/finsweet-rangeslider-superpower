@@ -905,13 +905,55 @@
         qt = (e, t, r, o, min, max) => {
         // qt = (e, t, r, o) => {
             let [s, i, n] = [e, t, r].map(a => o === "date" ? dt(a) : jt(a));
-            // s = $45,000
-            // i = $28,000
-            // n = $193,000
+            // ON BOTH HANDLES SET
+            // s = $45,000 (property price)
+            // i = $28,000 (left handle)
+            // n = $193,000 (right handle)
+            // t = "28000" (left handle as string)
+            // r = "193000" (right handle as string)
             // o = null
-            // s >= i && s <= n
-            // (s >= i || i <= min) && (s <= n || n >= max)
-            return s ? !t && typeof n != "undefined" ? s <= n : !r && typeof i != "undefined" ? s >= i : typeof n == "undefined" || typeof i == "undefined" ? !1 : (s >= i || i <= min) && (s <= n || n >= max) : !1
+
+            // ON NEITHER HANDLE SET
+            // s = $45,000 (property price)
+            // i = undefined (left handle)
+            // n = undefined (right handle)
+            // t = undefined (left handle as string)
+            // r = undefined (right handle as string)
+            // o = null
+
+             // return s ? !t && typeof n != "undefined" ? s <= n :
+             // !r && typeof i != "undefined" ? s >= i :
+             // typeof n == "undefined" || typeof i == "undefined" ? !1 :
+             // s >= i && s <= n :
+             // !1
+
+
+
+            // if (s) {
+            //     if (!t && typeof n != "undefined") {
+            //         return s <= n || n >= max;
+            //     }
+            //     else {
+            //         if (!r && typeof i != "undefined") {
+            //             return s >= i || i <= min;
+            //         }
+            //         else {
+            //             if (typeof n == "undefined" || typeof i == "undefined") {
+            //                 return !1;
+            //             }
+            //             else {
+            //                 return (s >= i || i <= min) && (s <= n || n >= max);
+            //             }
+            //         }
+            //     }
+            // }
+            // else {
+            //     return !1;
+            // }
+
+
+            return s ? !t && typeof n != "undefined" ? s <= n || n >= max : !r && typeof i != "undefined" ? s >= i || i <= min : typeof n == "undefined" || typeof i == "undefined" ? !1 : (s >= i || i <= min) && (s <= n || n >= max) : !1
+            // return s ? !t && typeof n != "undefined" ? s <= n : !r && typeof i != "undefined" ? s >= i : typeof n == "undefined" || typeof i == "undefined" ? !1 : (s >= i || i <= min) && (s <= n || n >= max) : !1
             // return s ? !t && typeof n != "undefined" ? s <= n : !r && typeof i != "undefined" ? s >= i : typeof n == "undefined" || typeof i == "undefined" ? !1 : s >= i && s <= n : !1
         };
     var {
