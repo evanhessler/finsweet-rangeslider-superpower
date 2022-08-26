@@ -436,8 +436,8 @@
             this.getConstraints = () => [this.minValue, this.maxValue];
             this.inputElement = l, this.displayValueElement = d, this.formatValueDisplay = p, this.index = r, this.minRange = s, this.maxRange = n, this.totalRange = n - s, this.step = i, this.precision = a, this.minValue = s, this.maxValue = n, this.trackWidth = o, ht(t), Tt(t, l), this.setValue(u, s, n), this.listenEvents()
             window.allFsElements[l.getAttribute("fs-cmsfilter-field")] = {
-                "min": l.element.getAttribute("fs-cmsfilter-field-min"),
-                "max": l.element.getAttribute("fs-cmsfilter-field-max")
+                "min": l.getAttribute("fs-cmsfilter-field-min"),
+                "max": l.getAttribute("fs-cmsfilter-field-max")
             }
         }
         listenEvents() {
