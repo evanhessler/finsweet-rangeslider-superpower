@@ -494,10 +494,14 @@
             if (s === t || t < o || t > i) return !1;
             this.currentValue = t, this.updatePosition(), this.updateSiblingConstraints();
             let l = `${t}`,
+                symbolValue = n.get_attribute('fs-rangeslider-element-symbol')
+                if (symbolValue == null) {
+                    symbolValue = "";
+                }
                 d = t.toLocaleString();
-                d = "$" + d;
+                d = symbolValue + d;
                 if (t <= minRange && t != 0) {
-                    d = "<" + d
+                    d = "< " + d
                 }
                 if (t >= maxRange) {
                     d = d + "+"
