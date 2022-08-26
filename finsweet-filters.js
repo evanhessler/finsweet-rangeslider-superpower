@@ -929,7 +929,7 @@
 
 
 
-            if (s || (n >= max && i <= min)) {
+            if (s || ((n == "undefined" || n >= max) && (i == "undefined" || i <= min))) {
                 if (!t && typeof n != "undefined" && n < max) {
                     return s <= n || n >= max;
                 }
