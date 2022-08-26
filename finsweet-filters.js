@@ -902,8 +902,8 @@
             });
             return o === "all" ? m.length === t.length : m.length > 0
         },
-        // qt = (e, t, r, o, min, max) => {
-        qt = (e, t, r, o) => {
+        qt = (e, t, r, o, min, max) => {
+        // qt = (e, t, r, o) => {
             let [s, i, n] = [e, t, r].map(a => o === "date" ? dt(a) : jt(a));
             // s = $45,000
             // i = $28,000
