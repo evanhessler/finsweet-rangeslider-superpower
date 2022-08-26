@@ -932,7 +932,7 @@
                 }) => d === "to");
                 if (p && f.length)
                     for (let d of f) {
-                        currentFsElement = E;
+                        window.currentFsElement = E;
                         let {
                             element: E,
                             type: A
