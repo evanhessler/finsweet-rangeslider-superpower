@@ -928,7 +928,7 @@
              // !1
 
 
-             if ((n == "undefined" || n >= max || s <= n) && (i == "undefined" || i <= min || s >= i)) {
+             if ((typeof n == "undefined" || n >= max || s <= n) && (typeof i == "undefined" || i <= min || s >= i)) {
                 return 1;
              }
              else {
