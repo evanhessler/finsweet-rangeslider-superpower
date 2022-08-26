@@ -506,8 +506,11 @@
                 if (t <= minRange && t != 0) {
                     d = "< " + symbolValue + d;
                 }
-                if (t >= maxRange) {
-                    d = d + symbolValue + "+"
+                else if (t >= maxRange) {
+                    d = d + symbolValue + "+";
+                }
+                else {
+                    d = d + symbolValue;
                 }
 
             return n.setAttribute(ft, l), a && (a.textContent = u ? d : l), r && this.updateInputElement(), !0
