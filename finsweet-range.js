@@ -495,7 +495,7 @@
             this.currentValue = t, this.updatePosition(), this.updateSiblingConstraints();
             let l = `${t}`,
                 d = t.toLocaleString();
-                if (!isNull(n)) {
+                if (n && n.get_attribute('fs-rangeslider-element-symbol')) {
                     symbolValue = n.get_attribute('fs-rangeslider-element-symbol')
                 }
                 else {
