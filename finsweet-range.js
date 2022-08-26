@@ -495,6 +495,14 @@
             this.currentValue = t, this.updatePosition(), this.updateSiblingConstraints();
             let l = `${t}`,
                 d = t.toLocaleString();
+                if (s <= minRange && s != 0) {
+                    d = "=<" + d
+                }
+                if (s >= maxRange) {
+                    d = d + "+"
+                }
+                d = $ + d;
+
             return n.setAttribute(ft, l), a && (a.textContent = u ? d : l), r && this.updateInputElement(), !0
         }
         updateInputElement() {
