@@ -503,12 +503,11 @@
                 if (this.element && this.element.getAttribute('fs-rangeslider-element-symbol')) {
                     symbolValue = this.element.getAttribute('fs-rangeslider-element-symbol');
                 }
-                d = symbolValue + d;
                 if (t <= minRange && t != 0) {
-                    d = "< " + d
+                    d = "< " + symbolValue + d;
                 }
                 if (t >= maxRange) {
-                    d = d + "+"
+                    d = d + symbolValue + "+"
                 }
 
             return n.setAttribute(ft, l), a && (a.textContent = u ? d : l), r && this.updateInputElement(), !0
