@@ -497,7 +497,7 @@
                 d = t.toLocaleString();
                 console.log(this);
                 console.log(n);
-                console.log(element);
+                // console.log(element);
                 console.log(this.element);
                 // if (element && element.get_attribute('fs-rangeslider-element-symbol')) {
                 //     symbolValue = n.get_attribute('fs-rangeslider-element-symbol')
