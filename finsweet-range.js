@@ -495,6 +495,7 @@
             this.currentValue = t, this.updatePosition(), this.updateSiblingConstraints();
             let l = `${t}`,
                 d = t.toLocaleString();
+                d = "$" + d;
                 if (t <= minRange && t != 0) {
                     d = "<" + d
                 }
