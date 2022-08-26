@@ -5,7 +5,7 @@
 // u inside Qt contains the filter key "price"
 
 (() => {
-    window.allFsElements = {};
+    // window.allFsElements = {};
     var ie = Object.create;
     var it = Object.defineProperty,
         ne = Object.defineProperties,
@@ -952,10 +952,10 @@
                             element: E,
                             type: A
                         } = d;
-                        window.allFsElements[d.element.getAttribute("fs-cmsfilter-field")] = {
-                            "min": d.element.getAttribute("fs-cmsfilter-field-min"),
-                            "max": d.element.getAttribute("fs-cmsfilter-field-max")
-                        }
+                        // window.allFsElements[d.element.getAttribute("fs-cmsfilter-field")] = {
+                        //     "min": d.element.getAttribute("fs-cmsfilter-field-min"),
+                        //     "max": d.element.getAttribute("fs-cmsfilter-field-max")
+                        // }
                         A === "checkbox" || A === "radio" ? k(E, !0) : k(E, p), M(E, l, d)
                     }
                 if (g && y)
@@ -964,10 +964,10 @@
                             element: E,
                             type: A
                         } = d;
-                        window.allFsElements[d.element.getAttribute("fs-cmsfilter-field")] = {
-                            "min": d.element.getAttribute("fs-cmsfilter-field-min"),
-                            "max": d.element.getAttribute("fs-cmsfilter-field-max")
-                        }
+                        // window.allFsElements[d.element.getAttribute("fs-cmsfilter-field")] = {
+                        //     "min": d.element.getAttribute("fs-cmsfilter-field-min"),
+                        //     "max": d.element.getAttribute("fs-cmsfilter-field-max")
+                        // }
                         A === "checkbox" || A === "radio" ? k(E, !0) : k(E, g), M(E, l, d)
                     }
                 continue
