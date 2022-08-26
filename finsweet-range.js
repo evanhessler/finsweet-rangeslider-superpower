@@ -529,6 +529,9 @@
                 else if (t >= maxRange && symbolLocation == "after") {
                     d = d + symbolValue + "+";
                 }
+                else if (symbolLocation == "before") {
+                    d = symbolValue + d;
+                }
                 else {
                     d = d + symbolValue;
                 }
