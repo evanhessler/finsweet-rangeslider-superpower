@@ -911,8 +911,8 @@
             // o = null
             // s >= i && s <= n
             // (s >= i || i <= min) && (s <= n || n >= max)
-            // return s ? !t && typeof n != "undefined" ? s <= n : !r && typeof i != "undefined" ? s >= i : typeof n == "undefined" || typeof i == "undefined" ? !1 : (s >= i || i <= min) && (s <= n || n >= max) : !1
-            return s ? !t && typeof n != "undefined" ? s <= n : !r && typeof i != "undefined" ? s >= i : typeof n == "undefined" || typeof i == "undefined" ? !1 : s >= i && s <= n : !1
+            return s ? !t && typeof n != "undefined" ? s <= n : !r && typeof i != "undefined" ? s >= i : typeof n == "undefined" || typeof i == "undefined" ? !1 : (s >= i || i <= min) && (s <= n || n >= max) : !1
+            // return s ? !t && typeof n != "undefined" ? s <= n : !r && typeof i != "undefined" ? s >= i : typeof n == "undefined" || typeof i == "undefined" ? !1 : s >= i && s <= n : !1
         };
     var {
         location: zt,
