@@ -864,15 +864,17 @@
                 } = p, E = [...g];
                 if (!E.length) return !1;
                 if (s === "range") {
-                    let min_max = window.allFsElements[u];
-                    let [C] = E, [L, T] = l, h = qt(C, L, T, y, min_max['min'], min_max['max']);
+                    // let min_max = window.allFsElements[u];
+                    let [C] = E, [L, T] = l, h = qt(C, L, T, y);
+                    // let [C] = E, [L, T] = l, h = qt(C, L, T, y, min_max['min'], min_max['max']);
                     return h && i && (f == null || f.set(C, {
                         highlightCSSClass: n
                     })), h
                 }
                 let A = l.filter(C => {
                     if (d === "from" || d === "to") {
-                        let [T, h] = E, w = qt(C, T, h, y, min_max['min'], min_max['max']);
+                        // let [T, h] = E, w = qt(C, T, h, y, min_max['min'], min_max['max']);
+                        let [T, h] = E, w = qt(C, T, h, y);
                         return w && i && (f == null || f.set(T, {
                             highlightCSSClass: n
                         }), f == null || f.set(h, {
@@ -900,7 +902,8 @@
             });
             return o === "all" ? m.length === t.length : m.length > 0
         },
-        qt = (e, t, r, o, min, max) => {
+        // qt = (e, t, r, o, min, max) => {
+        qt = (e, t, r, o) => {
             let [s, i, n] = [e, t, r].map(a => o === "date" ? dt(a) : jt(a));
             // s = $45,000
             // i = $28,000
@@ -908,7 +911,8 @@
             // o = null
             // s >= i && s <= n
             // (s >= i || i <= min) && (s <= n || n >= max)
-            return s ? !t && typeof n != "undefined" ? s <= n : !r && typeof i != "undefined" ? s >= i : typeof n == "undefined" || typeof i == "undefined" ? !1 : (s >= i || i <= min) && (s <= n || n >= max) : !1
+            // return s ? !t && typeof n != "undefined" ? s <= n : !r && typeof i != "undefined" ? s >= i : typeof n == "undefined" || typeof i == "undefined" ? !1 : (s >= i || i <= min) && (s <= n || n >= max) : !1
+            return s ? !t && typeof n != "undefined" ? s <= n : !r && typeof i != "undefined" ? s >= i : typeof n == "undefined" || typeof i == "undefined" ? !1 : s >= i && s <= n : !1
         };
     var {
         location: zt,
