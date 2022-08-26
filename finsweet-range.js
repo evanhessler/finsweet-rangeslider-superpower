@@ -494,12 +494,13 @@
             if (s === t || t < o || t > i) return !1;
             this.currentValue = t, this.updatePosition(), this.updateSiblingConstraints();
             let l = `${t}`,
-                // symbolValue = n.get_attribute('fs-rangeslider-element-symbol')
-                // if (symbolValue == null) {
-                //     symbolValue = "";
-                // }
-                console.log(n)
-                console.log(element)
+                if (!isNull(n)) {
+                    symbolValue = n.get_attribute('fs-rangeslider-element-symbol')
+                }
+                else {
+                    symbolValue = "";
+                }
+
                 d = t.toLocaleString();
                 d = symbolValue + d;
                 if (t <= minRange && t != 0) {
