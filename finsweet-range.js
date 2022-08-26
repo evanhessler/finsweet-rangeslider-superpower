@@ -499,8 +499,8 @@
                 console.log(n);
                 // console.log(element);
                 console.log(this.element);
-                if (this.element && this.element.get_attribute('fs-rangeslider-element-symbol')) {
-                    symbolValue = this.element.get_attribute('fs-rangeslider-element-symbol');
+                if (this.element && this.element.getAttribute('fs-rangeslider-element-symbol')) {
+                    symbolValue = this.element.getAttribute('fs-rangeslider-element-symbol');
                 }
                 else {
                     symbolValue = "";
