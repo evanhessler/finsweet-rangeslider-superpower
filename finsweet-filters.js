@@ -928,28 +928,37 @@
              // !1
 
 
-
-            if (s || ((n == "undefined" || n >= max) && (i == "undefined" || i <= min))) {
-                if (!t && typeof n != "undefined" && n < max) {
-                    return s <= n || n >= max;
-                }
-                else {
-                    if (!r && typeof i != "undefined" && i > min) {
-                        return s >= i || i <= min;
-                    }
-                    else {
-                        if (typeof n == "undefined" || typeof i == "undefined") {
-                            return !1;
-                        }
-                        else {
-                            return (s >= i || i <= min) && (s <= n || n >= max);
-                        }
-                    }
-                }
-            }
-            else {
+             if ((n == "undefined" || n >= max || s <= n) && (i == "undefined" || i <= min || s >= i)) {
+                return 1;
+             }
+             else {
                 return !1;
-            }
+             }
+
+
+
+
+            // if (s || ((n == "undefined" || n >= max) && (i == "undefined" || i <= min))) {
+            //     if (!t && typeof n != "undefined" && n < max) {
+            //         return s <= n || n >= max;
+            //     }
+            //     else {
+            //         if (!r && typeof i != "undefined" && i > min) {
+            //             return s >= i || i <= min;
+            //         }
+            //         else {
+            //             if (typeof n == "undefined" || typeof i == "undefined") {
+            //                 return !1;
+            //             }
+            //             else {
+            //                 return (s >= i || i <= min) && (s <= n || n >= max);
+            //             }
+            //         }
+            //     }
+            // }
+            // else {
+            //     return !1;
+            // }
 
 
             // return s ? !t && typeof n != "undefined" && n < max ? s <= n || n >= max : !r && typeof i != "undefined" && i > min ? s >= i || i <= min : typeof n == "undefined" || typeof i == "undefined" ? !1 : (s >= i || i <= min) && (s <= n || n >= max) : !1
