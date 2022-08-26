@@ -864,17 +864,17 @@
                 } = p, E = [...g];
                 if (!E.length) return !1;
                 if (s === "range") {
-                    // let min_max = window.allFsElements[u];
-                    let [C] = E, [L, T] = l, h = qt(C, L, T, y);
-                    // let [C] = E, [L, T] = l, h = qt(C, L, T, y, min_max['min'], min_max['max']);
+                    let min_max = window.allFsElements[u];
+                    // let [C] = E, [L, T] = l, h = qt(C, L, T, y);
+                    let [C] = E, [L, T] = l, h = qt(C, L, T, y, min_max['min'], min_max['max']);
                     return h && i && (f == null || f.set(C, {
                         highlightCSSClass: n
                     })), h
                 }
                 let A = l.filter(C => {
                     if (d === "from" || d === "to") {
-                        // let [T, h] = E, w = qt(C, T, h, y, min_max['min'], min_max['max']);
-                        let [T, h] = E, w = qt(C, T, h, y);
+                        let [T, h] = E, w = qt(C, T, h, y, min_max['min'], min_max['max']);
+                        // let [T, h] = E, w = qt(C, T, h, y);
                         return w && i && (f == null || f.set(T, {
                             highlightCSSClass: n
                         }), f == null || f.set(h, {
