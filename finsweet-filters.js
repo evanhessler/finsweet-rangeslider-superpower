@@ -932,7 +932,7 @@
                 }) => d === "to");
                 if (p && f.length)
                     for (let d of f) {
-                        global currentFsElement = E;
+                        currentFsElement = E;
                         let {
                             element: E,
                             type: A
