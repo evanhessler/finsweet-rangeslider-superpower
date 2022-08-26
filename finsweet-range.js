@@ -495,13 +495,13 @@
             this.currentValue = t, this.updatePosition(), this.updateSiblingConstraints();
             let l = `${t}`,
                 d = t.toLocaleString();
-                // if (!isNull(n)) {
-                //     symbolValue = n.get_attribute('fs-rangeslider-element-symbol')
-                // }
-                // else {
-                //     symbolValue = "";
-                // }
-                // d = symbolValue + d;
+                if (!isNull(n)) {
+                    symbolValue = n.get_attribute('fs-rangeslider-element-symbol')
+                }
+                else {
+                    symbolValue = "";
+                }
+                d = symbolValue + d;
                 if (t <= minRange && t != 0) {
                     d = "< " + d
                 }
