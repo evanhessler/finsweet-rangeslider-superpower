@@ -932,11 +932,11 @@
                 }) => d === "to");
                 if (p && f.length)
                     for (let d of f) {
-                        window.currentFsElement = E;
                         let {
                             element: E,
                             type: A
                         } = d;
+                        window.currentFsElement = d.element;
                         A === "checkbox" || A === "radio" ? k(E, !0) : k(E, p), M(E, l, d)
                     }
                 if (g && y)
