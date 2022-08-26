@@ -503,10 +503,30 @@
                 if (this.element && this.element.getAttribute('fs-rangeslider-element-symbol')) {
                     symbolValue = this.element.getAttribute('fs-rangeslider-element-symbol');
                 }
-                if (t <= minRange && t != 0) {
+                let symbolLocation = "before";
+                if (this.element && this.element.getAttribute('fs-rangeslider-element-symbol-location')) {
+                    symbolLocation = this.element.getAttribute('fs-rangeslider-element-symbol-location');
+                }
+                // if (t <= minRange && t != 0) {
+                //     d = "< " + symbolValue + d;
+                // }
+                // else if (t >= maxRange) {
+                //     d = d + symbolValue + "+";
+                // }
+                // else {
+                //     d = d + symbolValue;
+                // }
+
+                if (t <= minRange && t != 0 && symbolLocation == "before") {
                     d = "< " + symbolValue + d;
                 }
-                else if (t >= maxRange) {
+                else if (t <= minRange && t != 0 && symbolLocation == "after") {
+                    d = "< " + d + symbolValue;
+                }
+                else if (t >= maxRange && symbolLocation == "before") {
+                    d = symbolValue + d + "+";
+                }
+                else if (t >= maxRange && symbolLocation == "after") {
                     d = d + symbolValue + "+";
                 }
                 else {
