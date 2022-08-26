@@ -960,6 +960,10 @@
                             element: E,
                             type: A
                         } = d;
+                        window.allFsElements[d.element.getAttribute("fs-cmsfilter-field")] = {
+                            "min": d.element.getAttribute("fs-cmsfilter-field-min"),
+                            "max": d.element.getAttribute("fs-cmsfilter-field-max")
+                        }
                         A === "checkbox" || A === "radio" ? k(E, !0) : k(E, g), M(E, l, d)
                     }
                 continue
