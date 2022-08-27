@@ -1054,7 +1054,8 @@
 
             if (o in window.allFsElements) {
                 if (!window.allFsElements[o]["valuesConstrained"] && window.allFsElements[o]["min"] == setToArray[0] && typeof setToArray[0] != "undefined") {
-                    newSetToArray.push("<" + setToArray[0]);
+                    // %3C = <
+                    newSetToArray.push("%3C" + setToArray[0]);
                 }
                 else if ((window.allFsElements[o]["valuesConstrained"] || window.allFsElements[o]["min"] != setToArray[0]) && typeof setToArray[0] != "undefined") {
                     newSetToArray.push(setToArray[0])
