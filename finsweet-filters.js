@@ -1058,24 +1058,24 @@
 
 
             if (o in window.allFsElements) {
-                if (window.allFsElements[o]["min"] == setToArray[0]) {
+                if (window.allFsElements[o]["min"] == setToArray[0] && typeof setToArray[0] != "undefined") {
                     i = "<" + setToArray[0];
                 }
-                else {
+                if (window.allFsElements[o]["min"] != setToArray[0] && typeof setToArray[0] != "undefined") {
                     i = setToArray[0];
                 }
 
-                if (window.allFsElements[o]["max"] == setToArray[1]) {
+                if (window.allFsElements[o]["max"] == setToArray[1] && typeof setToArray[1] != "undefined") {
                     i = setToArray[1] + "+";
                 }
-                else {
+                if (window.allFsElements[o]["max"] != setToArray[1] && typeof setToArray[1] != "undefined") {
                     i = setToArray[1];
                 }
             }
             else {
                 i = [...s].join(",");
             }
-            
+
             r.set(o, i)
         }
         xr.replaceState(null, "", t.toString())
