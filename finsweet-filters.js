@@ -1051,7 +1051,19 @@
                 r.delete(o);
                 continue
             }
-            let i = [...s].join(",");
+
+            setToArray = [...s];
+
+
+            if (window.allFsElements.has(o) && window.allFsElements[o]["min"] == setToArray[0] && setToArray[0] != 0) {
+                i = "<" + setToArray[0]
+            }
+
+            if (window.allFsElements.has(o) && window.allFsElements[o]["max"] == setToArray[1]) {
+                i = setToArray[1] + "+";
+            }
+
+            // let i = [...s].join(",");
             r.set(o, i)
         }
         xr.replaceState(null, "", t.toString())
