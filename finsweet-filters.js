@@ -5,7 +5,6 @@
 // u inside Qt contains the filter key "price"
 
 (() => {
-    // window.allFsElements = {};
     var ie = Object.create;
     var it = Object.defineProperty,
         ne = Object.defineProperties,
@@ -866,14 +865,14 @@
                 if (s === "range") {
                     let min_max = window.allFsElements[u];
                     // let [C] = E, [L, T] = l, h = qt(C, L, T, y);
-                    let [C] = E, [L, T] = l, h = qt(C, L, T, y, min_max['min'], min_max['max']);
+                    let [C] = E, [L, T] = l, h = qt(C, L, T, y, min_max['min'], min_max['max'], min_max["valuesConstrained"]);
                     return h && i && (f == null || f.set(C, {
                         highlightCSSClass: n
                     })), h
                 }
                 let A = l.filter(C => {
                     if (d === "from" || d === "to") {
-                        let [T, h] = E, w = qt(C, T, h, y, min_max['min'], min_max['max']);
+                        let [T, h] = E, w = qt(C, T, h, y, min_max['min'], min_max['max'], min_max["valuesConstrained"]);
                         // let [T, h] = E, w = qt(C, T, h, y);
                         return w && i && (f == null || f.set(T, {
                             highlightCSSClass: n
@@ -902,7 +901,7 @@
             });
             return o === "all" ? m.length === t.length : m.length > 0
         },
-        qt = (e, t, r, o, min, max) => {
+        qt = (e, t, r, o, min, max, valuesConstrained) => {
         // qt = (e, t, r, o) => {
             let [s, i, n] = [e, t, r].map(a => o === "date" ? dt(a) : jt(a));
             // ON BOTH HANDLES SET
@@ -928,7 +927,10 @@
              // !1
 
 
-             if ((typeof n == "undefined" || n >= max || (s <= n && s)) && (typeof i == "undefined" || i <= min || (s >= i && s))) {
+             if (!valuesConstrained && (typeof n == "undefined" || n >= max || (s <= n && s)) && (typeof i == "undefined" || i <= min || (s >= i && s))) {
+                return 1;
+             }
+             else if (valuesConstrained && (typeof n == "undefined" || (s <= n && s)) && (typeof i == "undefined" || (s >= i && s))) {
                 return 1;
              }
              else {
@@ -1003,10 +1005,6 @@
                             element: E,
                             type: A
                         } = d;
-                        // window.allFsElements[d.element.getAttribute("fs-cmsfilter-field")] = {
-                        //     "min": d.element.getAttribute("fs-cmsfilter-field-min"),
-                        //     "max": d.element.getAttribute("fs-cmsfilter-field-max")
-                        // }
                         A === "checkbox" || A === "radio" ? k(E, !0) : k(E, p), M(E, l, d)
                     }
                 if (g && y)
@@ -1015,10 +1013,6 @@
                             element: E,
                             type: A
                         } = d;
-                        // window.allFsElements[d.element.getAttribute("fs-cmsfilter-field")] = {
-                        //     "min": d.element.getAttribute("fs-cmsfilter-field-min"),
-                        //     "max": d.element.getAttribute("fs-cmsfilter-field-max")
-                        // }
                         A === "checkbox" || A === "radio" ? k(E, !0) : k(E, g), M(E, l, d)
                     }
                 continue
@@ -1059,20 +1053,20 @@
 
 
             if (o in window.allFsElements) {
-                if (window.allFsElements[o]["min"] == setToArray[0] && typeof setToArray[0] != "undefined") {
+                if (!window.allFsElements[o]["valuesConstrained"] && window.allFsElements[o]["min"] == setToArray[0] && typeof setToArray[0] != "undefined") {
                     newSetToArray.push("<" + setToArray[0]);
                 }
-                else if (window.allFsElements[o]["min"] != setToArray[0] && typeof setToArray[0] != "undefined") {
+                else if ((window.allFsElements[o]["valuesConstrained"] || window.allFsElements[o]["min"] != setToArray[0]) && typeof setToArray[0] != "undefined") {
                     newSetToArray.push(setToArray[0])
                 }
                 else {
                     newSetToArray.push("");
                 }
 
-                if (window.allFsElements[o]["max"] == setToArray[1] && typeof setToArray[1] != "undefined") {
+                if (!window.allFsElements[o]["valuesConstrained"] && window.allFsElements[o]["max"] == setToArray[1] && typeof setToArray[1] != "undefined") {
                     newSetToArray.push(setToArray[1] + "+")
                 }
-                else if (window.allFsElements[o]["max"] != setToArray[1] && typeof setToArray[1] != "undefined") {
+                else if ((window.allFsElements[o]["valuesConstrained"] || window.allFsElements[o]["max"] != setToArray[1]) && typeof setToArray[1] != "undefined") {
                     newSetToArray.push(setToArray[1])
                 }
                 else {
