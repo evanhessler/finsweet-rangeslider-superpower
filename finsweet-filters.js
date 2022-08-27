@@ -1054,6 +1054,7 @@
 
             setToArray = [...s];
 
+            let i = "";
 
             if (o in window.allFsElements && window.allFsElements[o]["min"] == setToArray[0] && setToArray[0] != 0) {
                 i = "<" + setToArray[0]
@@ -1064,7 +1065,7 @@
             }
 
             if (!o in window.allFsElements) {
-                let i = [...s].join(",");
+                i = [...s].join(",");
             }
             r.set(o, i)
         }
