@@ -1058,25 +1058,31 @@
             let i = "";
 
 
-            // if (o in window.allFsElements) {
-            //     if (window.allFsElements[o]["min"] == setToArray[0] && typeof setToArray[0] != "undefined") {
-            //         newSetToArray.push("<" + setToArray[0]);
-            //     }
-            //     if (window.allFsElements[o]["min"] != setToArray[0] && typeof setToArray[0] != "undefined") {
-            //         newSetToArray.push(i += setToArray[0])
-            //     }
+            if (o in window.allFsElements) {
+                if (window.allFsElements[o]["min"] == setToArray[0] && typeof setToArray[0] != "undefined") {
+                    newSetToArray.push("<" + setToArray[0]);
+                }
+                else if (window.allFsElements[o]["min"] != setToArray[0] && typeof setToArray[0] != "undefined") {
+                    newSetToArray.push(i += setToArray[0])
+                }
+                else {
+                    newSetToArray.push("");
+                }
 
-            //     if (window.allFsElements[o]["max"] == setToArray[1] && typeof setToArray[1] != "undefined") {
-            //         newSetToArray.push(i += setToArray[1] + "+")
-            //     }
-            //     if (window.allFsElements[o]["max"] != setToArray[1] && typeof setToArray[1] != "undefined") {
-            //         newSetToArray.push(i += setToArray[1])
-            //     }
-            //     i = newSetToArray.join(",");
-            // }
-            // else {
-            //     i += [...s].join(",");
-            // }
+                if (window.allFsElements[o]["max"] == setToArray[1] && typeof setToArray[1] != "undefined") {
+                    newSetToArray.push(i += setToArray[1] + "+")
+                }
+                else if (window.allFsElements[o]["max"] != setToArray[1] && typeof setToArray[1] != "undefined") {
+                    newSetToArray.push(i += setToArray[1])
+                }
+                else {
+                    newSetToArray.push("");
+                }
+                i = newSetToArray.join(",");
+            }
+            else {
+                i += [...s].join(",");
+            }
 
             i += [...s].join(",");
 
