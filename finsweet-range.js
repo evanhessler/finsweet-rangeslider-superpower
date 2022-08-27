@@ -438,7 +438,7 @@
             window.allFsElements[l.getAttribute("fs-cmsfilter-field")] = {
                 "min": l.getAttribute("fs-cmsfilter-field-min"),
                 "max": l.getAttribute("fs-cmsfilter-field-max"),
-                "valuesConstrained": l.getAttribute("fs-cmsfilter-field-constrain-values")
+                "valuesConstrained": l.getAttribute("fs-cmsfilter-field-constrain-values") == "true" || l.getAttribute("fs-cmsfilter-field-constrain-values") == "True"
             }
         }
         listenEvents() {
