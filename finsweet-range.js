@@ -510,16 +510,24 @@
                     symbolLocation = this.element.getAttribute('fs-rangeslider-element-symbol-location');
                 }
 
-                if (t <= minRange && t != 0 && symbolLocation == "before") {
+                let valuesConstrained = false;
+                if (this.element && (this.element.getAttribute('fs-cmsfilter-field-constrain-values') == "true" || this.element.getAttribute('fs-cmsfilter-field-constrain-values') == "True")) {
+                    valuesConstrained = true;
+                }
+
+                
+
+
+                if (!valuesConstrained && t <= minRange && t != 0 && symbolLocation == "before") {
                     d = "< " + symbolValue + d;
                 }
-                else if (t <= minRange && t != 0 && symbolLocation == "after") {
+                else if (!valuesConstrained && t <= minRange && t != 0 && symbolLocation == "after") {
                     d = "< " + d + symbolValue;
                 }
-                else if (t >= maxRange && symbolLocation == "before") {
+                else if (!valuesConstrained && t >= maxRange && symbolLocation == "before") {
                     d = symbolValue + d + "+";
                 }
-                else if (t >= maxRange && symbolLocation == "after") {
+                else if (!valuesConstrained && t >= maxRange && symbolLocation == "after") {
                     d = d + symbolValue + "+";
                 }
                 else if (symbolLocation == "before") {

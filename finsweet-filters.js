@@ -1,8 +1,9 @@
-// LINE 934 CONTAINS ELEMENT
+// Something in here is breaking the null value. For some reason u does not have "price" in props sometimes
+// let p = e.props[u];
+// if (!p) return !1;
 
-// Final Calculation done in qt
-// Qt calls qt
-// u inside Qt contains the filter key "price"
+// LOOK AT 627 and 1129 to see why et() function is going funky
+
 
 (() => {
     var ie = Object.create;
