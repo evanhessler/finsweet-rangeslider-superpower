@@ -1056,17 +1056,26 @@
 
             let i = "";
 
-            if (o in window.allFsElements && window.allFsElements[o]["min"] == setToArray[0] && setToArray[0] != 0) {
-                i = "<" + setToArray[0]
-            }
 
-            if (o in window.allFsElements && window.allFsElements[o]["max"] == setToArray[1]) {
-                i = setToArray[1] + "+";
-            }
+            if (o in window.allFsElements) {
+                if (window.allFsElements[o]["min"] == setToArray[0]) {
+                    i = "<" + setToArray[0];
+                }
+                else {
+                    i = setToArray[0];
+                }
 
-            if (!o in window.allFsElements) {
+                if (window.allFsElements[o]["max"] == setToArray[1]) {
+                    i = setToArray[1] + "+";
+                }
+                else {
+                    i = setToArray[1];
+                }
+            }
+            else {
                 i = [...s].join(",");
             }
+            
             r.set(o, i)
         }
         xr.replaceState(null, "", t.toString())
