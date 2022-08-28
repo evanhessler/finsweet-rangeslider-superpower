@@ -1477,6 +1477,7 @@
             activeCSSClass: u,
             debouncing: p
         });
+        window.fsRtClass = f;
         return (y = g.filtersInstances)[d = t || 0] || (y[d] = f), mt(e, {
             durationKey: vr,
             easingKey: Mr
