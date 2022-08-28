@@ -862,9 +862,9 @@
 
             let min_max = window.allFsElements[t];
 
-            if ((typeof low == "undefined" || low <= min_max['min']) && (typeof high == "undefined" || high >= min_max['max'])) {
-                window.fsRtClass.resetFilters(t);
-            }
+            // if ((typeof low == "undefined" || low <= min_max['min']) && (typeof high == "undefined" || high >= min_max['max'])) {
+            //     window.fsRtClass.resetFilters(t);
+            // }
 
             let c = t.includes("*");
             c && (t = Object.keys(e.props));
