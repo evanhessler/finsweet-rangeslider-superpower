@@ -851,6 +851,22 @@
         }) => {
             let l = [...r];
             if (!l.length) return !0;
+            if (l.length > 1) {
+                high = l[1];
+                low = l[0];
+            }
+            else {
+                low = l[0];
+                high = undefined
+            }
+
+            if ((typeof low == "undefined" || low <= min_max['min']) && (typeof high == "undefined" || high >= min_max['max'])) {
+                window.fsRtClass.resetFilters(u);
+            }
+
+            let min_max = window.allFsElements[u];
+
+
             let c = t.includes("*");
             c && (t = Object.keys(e.props));
             let m = t.filter(u => {
@@ -864,12 +880,8 @@
                 } = p, E = [...g];
                 if (!E.length) return !1;
                 if (s === "range") {
-                    let min_max = window.allFsElements[u];
                     // let [C] = E, [L, T] = l, h = qt(C, L, T, y);
                     let [C] = E, [L, T] = l, h = qt(C, L, T, y, min_max['min'], min_max['max'], min_max["valuesConstrained"]);
-                    if ((typeof L == "undefined" || L <= min_max['min']) && (typeof T == "undefined" || T >= min_max['max'])) {
-                        window.fsRtClass.resetFilters(u);
-                    }
                     return h && i && (f == null || f.set(C, {
                         highlightCSSClass: n
                     })), h
