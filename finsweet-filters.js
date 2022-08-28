@@ -883,7 +883,7 @@
                 high = undefined
             }
 
-            let min_max = window.allFsElements[t];
+            let min_max = window.allFsElements[t[0]];
 
             if ((typeof low == "undefined" || low <= min_max['min']) && (typeof high == "undefined" || high >= min_max['max'])) {
                 window.fsRtClass.resetFilters(t);
