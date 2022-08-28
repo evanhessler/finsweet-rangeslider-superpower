@@ -867,7 +867,7 @@
                     let min_max = window.allFsElements[u];
                     // let [C] = E, [L, T] = l, h = qt(C, L, T, y);
                     let [C] = E, [L, T] = l, h = qt(C, L, T, y, min_max['min'], min_max['max'], min_max["valuesConstrained"]);
-                    if (typeof L == "undefined" || L <= min_max['min']) && (typeof T == "undefined" || T >= min_max['max']) {
+                    if ((typeof L == "undefined" || L <= min_max['min']) && (typeof T == "undefined" || T >= min_max['max'])) {
                         window.fsRtClass.resetFilters(u);
                     }
                     return h && i && (f == null || f.set(C, {
