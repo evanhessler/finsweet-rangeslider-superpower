@@ -875,11 +875,11 @@
             let l = [...r];
             if (!l.length) return !0;
             if (l.length > 1) {
-                high = float(l[1]);
-                low = float(l[0]);
+                high = parseFloat(l[1]);
+                low = parseFloat(l[0]);
             }
             else {
-                low = float(l[0]);
+                low = parseFloat(l[0]);
                 high = undefined
             }
 
