@@ -4,6 +4,29 @@
 
 // LOOK AT 627 and 1129 to see why et() function is going funky
 
+// in qt
+// ON BOTH HANDLES SET
+// s = $45,000 (property price)
+// i = $28,000 (left handle)
+// n = $193,000 (right handle)
+// t = "28000" (left handle as string)
+// r = "193000" (right handle as string)
+// o = null
+
+// ON NEITHER HANDLE SET
+// s = $45,000 (property price)
+// i = undefined (left handle)
+// n = undefined (right handle)
+// t = undefined (left handle as string)
+// r = undefined (right handle as string)
+// o = null
+
+ // return s ? !t && typeof n != "undefined" ? s <= n :
+ // !r && typeof i != "undefined" ? s >= i :
+ // typeof n == "undefined" || typeof i == "undefined" ? !1 :
+ // s >= i && s <= n :
+ // !1
+
 
 (() => {
     var ie = Object.create;
@@ -919,28 +942,6 @@
         qt = (e, t, r, o, min, max, valuesConstrained) => {
         // qt = (e, t, r, o) => {
             let [s, i, n] = [e, t, r].map(a => o === "date" ? dt(a) : jt(a));
-            // ON BOTH HANDLES SET
-            // s = $45,000 (property price)
-            // i = $28,000 (left handle)
-            // n = $193,000 (right handle)
-            // t = "28000" (left handle as string)
-            // r = "193000" (right handle as string)
-            // o = null
-
-            // ON NEITHER HANDLE SET
-            // s = $45,000 (property price)
-            // i = undefined (left handle)
-            // n = undefined (right handle)
-            // t = undefined (left handle as string)
-            // r = undefined (right handle as string)
-            // o = null
-
-             // return s ? !t && typeof n != "undefined" ? s <= n :
-             // !r && typeof i != "undefined" ? s >= i :
-             // typeof n == "undefined" || typeof i == "undefined" ? !1 :
-             // s >= i && s <= n :
-             // !1
-
 
              if (!valuesConstrained && (typeof n == "undefined" || n >= max || (s <= n && s)) && (typeof i == "undefined" || i <= min || (s >= i && s))) {
                 return 1;
