@@ -860,12 +860,11 @@
                 high = undefined
             }
 
+            let min_max = window.allFsElements[u];
+
             if ((typeof low == "undefined" || low <= min_max['min']) && (typeof high == "undefined" || high >= min_max['max'])) {
                 window.fsRtClass.resetFilters(u);
             }
-
-            let min_max = window.allFsElements[u];
-
 
             let c = t.includes("*");
             c && (t = Object.keys(e.props));
